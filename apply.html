@@ -15,14 +15,17 @@
 
 body{
     background:#f4f4f4;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
 }
 
 .container{
     width:500px;
-    max-width:95%;
-    margin:50px auto;
+    max-width:90%;
     background:white;
-    padding:20px;
+    padding:25px;
     border-radius:10px;
     box-shadow:0 0 10px rgba(0,0,0,0.1);
 }
@@ -30,12 +33,18 @@ body{
 h1{
     text-align:center;
     margin-bottom:20px;
+    color:#0077cc;
 }
 
-input,textarea{
+input,
+select,
+textarea{
     width:100%;
-    padding:10px;
-    margin:10px 0;
+    padding:12px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+    border-radius:5px;
+    font-size:16px;
 }
 
 button{
@@ -44,6 +53,8 @@ button{
     background:#28a745;
     color:white;
     border:none;
+    border-radius:5px;
+    font-size:16px;
     cursor:pointer;
 }
 
@@ -51,10 +62,11 @@ button:hover{
     background:#218838;
 }
 
-#message{
+#successMessage{
+    margin-top:15px;
     text-align:center;
     color:green;
-    margin-top:15px;
+    font-weight:bold;
 }
 </style>
 </head>
@@ -62,63 +74,82 @@ button:hover{
 
 <div class="container">
 
-<h1>Job Application Form</h1>
+    <h1>Job Application Form</h1>
 
-<form id="jobForm">
+    <form id="jobForm">
 
-<input
-type="text"
-placeholder="Full Name"
-required>
+        <input
+            type="text"
+            id="name"
+            placeholder="Full Name"
+            required
+        >
 
-<input
-type="email"
-placeholder="Email Address"
-required>
+        <input
+            type="email"
+            id="email"
+            placeholder="Email Address"
+            required
+        >
 
-<input
-type="tel"
-placeholder="Mobile Number"
-required>
+        <input
+            type="tel"
+            id="phone"
+            placeholder="Mobile Number"
+            required
+        >
 
-<input
-type="text"
-placeholder="Qualification"
-required>
+        <input
+            type="text"
+            id="qualification"
+            placeholder="Qualification"
+            required
+        >
 
-<input
-type="text"
-placeholder="Skills"
-required>
+        <input
+            type="text"
+            id="skills"
+            placeholder="Skills"
+            required
+        >
 
-<textarea
-rows="5"
-placeholder="Tell us about yourself"
-required>
-</textarea>
+        <select id="experience" required>
+            <option value="">Select Experience</option>
+            <option>Fresher</option>
+            <option>1 Year</option>
+            <option>2 Years</option>
+            <option>3+ Years</option>
+        </select>
 
-<button type="submit">
-Submit Application
-</button>
+        <textarea
+            id="about"
+            rows="5"
+            placeholder="Tell us about yourself"
+            required
+        ></textarea>
 
-</form>
+        <button type="submit">
+            Submit Application
+        </button>
 
-<p id="message"></p>
+    </form>
+
+    <p id="successMessage"></p>
 
 </div>
 
 <script>
 
-document.getElementById("jobForm")
-.addEventListener("submit",function(e){
+document
+.getElementById("jobForm")
+.addEventListener("submit", function(event){
 
-e.preventDefault();
+    event.preventDefault();
 
-document.getElementById("message")
-.innerHTML=
-"Application Submitted Successfully!";
+    document.getElementById("successMessage").innerText =
+    "Application Submitted Successfully!";
 
-this.reset();
+    this.reset();
 
 });
 
