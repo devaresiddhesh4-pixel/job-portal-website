@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Application Form</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#f4f4f4;
+}
+
+.container{
+    width:500px;
+    max-width:95%;
+    margin:50px auto;
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px rgba(0,0,0,0.1);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+input,textarea{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+}
+
+button{
+    width:100%;
+    padding:12px;
+    background:#28a745;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#218838;
+}
+
+#message{
+    text-align:center;
+    color:green;
+    margin-top:15px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<h1>Job Application Form</h1>
+
+<form id="jobForm">
+
+<input
+type="text"
+placeholder="Full Name"
+required>
+
+<input
+type="email"
+placeholder="Email Address"
+required>
+
+<input
+type="tel"
+placeholder="Mobile Number"
+required>
+
+<input
+type="text"
+placeholder="Qualification"
+required>
+
+<input
+type="text"
+placeholder="Skills"
+required>
+
+<textarea
+rows="5"
+placeholder="Tell us about yourself"
+required>
+</textarea>
+
+<button type="submit">
+Submit Application
+</button>
+
+</form>
+
+<p id="message"></p>
+
+</div>
+
+<script>
+
+document.getElementById("jobForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+document.getElementById("message")
+.innerHTML=
+"Application Submitted Successfully!";
+
+this.reset();
+
+});
+
+</script>
+
+</body>
+</html>
